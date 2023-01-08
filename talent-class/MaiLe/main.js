@@ -24,8 +24,5 @@
     }
     checkDiem(7,8,9);
 
-// Viết 1 hàm có tham số là tháng, trả ra số ngày trong tháng đó.
-// VD: countDay(1) -> 31; countDay(2) -> 28.
-//     var month;
 
     
