@@ -90,3 +90,39 @@ function checkPasswordStrength(password) {
 }
 checkPasswordStrength("Mai 1 . ");
 //Bai 8
+var data = [
+  {"title": "Book1", "author": "1"},
+  {"title": "Book2", "author": "Surname2"},
+  {"title": "Boo3", "author": "Name3Surname3"},
+  {"title": "Book4", "author": "Name4Surname4"}
+];
+var lineArray = [["name1", 2, 3], ["name2", 4, 5], ["name3", 6, 7], ["name4", 8, 9], ["name5", 10, 11]];
+
+ function convertToCSV(arr) {
+  const array = [Object.keys(arr[0])].concat(arr)
+
+  return array.map(it => {
+    return Object.values(it).toString()
+  }).join('\n')
+}
+console.log(
+  convertToCSV(
+    [
+      {
+        id: 1,
+        name: 'Foo',
+        age: 14
+      },
+      {
+        id: 2,
+        name: 'Bar',
+         age: 15
+      },
+      {
+        id: 3,
+        name: 'Baz',
+        age: 16
+      }
+    ]
+  )
+)
