@@ -39,3 +39,11 @@ let newtxt= txt.charAt(0).toUpperCase() +   txt.slice(1);
 console.log(newtxt);
 
 // Bai 5
+const fileName = 'abc.docs.txt';
+const lastIdx = fileName.lastIndexOf('.');
+if (lastIdx === -1) {
+  console.log('none');
+} else {
+  const result = fileName.slice(lastIdx + 1);
+  console.log(result);
+}
