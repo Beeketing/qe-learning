@@ -1,0 +1,19 @@
+## Lesson 3: How to change Home Directory
+- Cần move home dir vì vài lí do:
+    - Move tới space có nhiều disk space hơn
+    - Project yêu cầu
+- Tìm folder jenkins home:
+    - Vào menu manage jenkins ngoài home
+    - Vào mục Configure System
+    - Nằm ngay ở đầu: Home directory
+- Chuyển jenkins home:
+    - Tạo folder mới
+    - Copy all data từ jenkins_home cũ sang đây
+    - Với windows:
+        - Thay đổi system variable JENKINS_HOME thành folder mới
+    - Với mac:
+        - export JENKINS_HOME=<path_to_folder>
+    - Restart jenkins
+        - Có thể tắt đi bật lại
+        - Hoặc vào bằng url: /restart
+    - Nếu không được thì vào hẳn file bashrc xem export đã thành công chưa? Hoặc khởi động lại window nhé.
