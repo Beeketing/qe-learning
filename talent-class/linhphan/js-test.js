@@ -47,3 +47,11 @@ if (lastIdx === -1) {
   const result = fileName.slice(lastIdx + 1);
   console.log(result);
 }
+
+// Bai 6
+const num = 16081997;
+const txt = num.toString();
+const result = txt.split('');
+console.log(result);
+
+// Bai 7
