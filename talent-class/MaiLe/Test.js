@@ -51,8 +51,9 @@ function bai5(string) {
 }
 bai5(file)
 //Bai 6
-const set1 = new Set("12334");
-console.log(set1);
+  const num = 12345;
+  const arrayNum = Array.from(String(num), Number);
+  console.log(arrayNum);
 //Bai 7
 function checkPasswordStrength(password) {
   var strength = 0;
