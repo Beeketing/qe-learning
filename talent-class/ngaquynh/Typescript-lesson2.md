@@ -23,28 +23,33 @@ console.log(addNonNull(3)) // => NaN
  - public: thuộc tính đc truy cập và thay đổi từ bên ngoài 
  - private: thuộc tính ko truy cập và thay đổi giá trị từ bên ngoài
  - readonly: truy cập đc nma không thay đổi đc giá trị
-- Ex1: Cách 1 (dài)
- 
-class Employee{
+- Ex1: 
 
+
+class Employee{
+ //Cách 1:
+ -----------------
     public name: string
     private age: number
     readonly male: boolean
 
-//Cách 1:
+
  constructor(n: string, a: number, m: boolean ){ // hàm khởi điểm
     
     this.name = n
     this.age = a
     this.male = m
-    }
-    
+}
+
+ -----------------
 //Cách 2:
-constructor{ // cần có dấu ","
+constructor( // cần có dấu ","
     public name: string,
+
     private age: number,
+
     readonly male: boolean
-}{}
+){}
 
     //không đọc đc bên ngoài thì mình sẽ đọc bên trong bằng cách dùng print
 
@@ -70,6 +75,53 @@ console.log(nga) // => Employee{ name: 'ngaquynh', age: 21, male: true}
 nga.male = false // => không sửa đc vì là readonly
 
 console.log(nga.print()) 
+
+## MODULE
+
+Export class từ file này để Import sang file khác
+- Ở file class.ts:
+
+export class Employee{
+    .....
+
+- Ở file module.ts:
+
+import { Employee } from './class'
+
+const nam = new Employee('nam', 25, false)
+console.log(nam);
+
+## INTERFACE
+
+
+- Ex: 
+
+interface person {
+
+    name: string
+    age: number
+    speak(lang: string): void // không trả về giá trị nào
+    spend(amount: number): number // trả về giá trị number
+}
+
+const nga: person = {
+
+    name: 'nga',
+    age: 21,
+    speak(text: string): void {
+        console.log(text)
+    },
+    spend(amt: number): number {
+        return amt
+    }
+}
+
+// console.log(nga)
+
+const helloPerson = (onePerson: person) => 
+    console.log(`hello ${onePerson.name}`);
+
+helloPerson(nga)
 
 
 
