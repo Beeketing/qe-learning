@@ -85,9 +85,9 @@ test('addDiscount', async ({ page }) => {
   await page.click("//span[normalize-space()='19']");
   await page.click("//span[normalize-space()='Confirm']");
   await page.click("//span[normalize-space()='Save changes']");
- 
+
   await page.goto('https://16-clothing.onshopbase.com/admin/discounts');
-  
+
   const statusDiscount = await page.locator("//p[contains(@class,'text-capitialize')][normalize-space()='Scheduled']").textContent()
   //expects 
 
