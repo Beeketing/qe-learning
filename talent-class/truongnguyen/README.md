@@ -22,5 +22,5 @@ Tracking Learning Progress
 # Learning TypeScript 
 - [Learning TypeScript Lesson 1](learning-typescript-lesson-1.md)
 - [Learning TypeScript Lesson 2](learning-typescript-lesson-2.md)
-- [Exercise TS](exercise-ts.ts)
+- [Exercise TS Homework slide 06](exercise-ts.ts)
 - [Exercise TS Slide 06](exercise-ts-slide-06.ts.ts)
