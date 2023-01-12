@@ -38,10 +38,18 @@ test('addProduct', async ({ page }) => {
   await page.waitForTimeout(5 * 1000);
 
   //Verify title
-  const product = await page.locator("//h1[@class='h4 d-block product__name mt0 mb12 product__name-product']").textContent()
+  const product = await page.locator("//h1[@class='h4 d-block product__name mt0 mb12 product__name-product']").textContent();
+
+  //expects Title
+  expect(product).toEqual('iPhone 14 Pro Max 128GB - Nga');
+
+  //Verify Price
+  const price = await page.locator("//span[@class='h4 product__price-span mr8 mb0']").textContent();
+  expect(price).toEqual('$10,000.00');
+  const comparePrice = await page.locator("//del[normalize-space()='$12,000.00']").textContent();
+  expect(comparePrice).toEqual('$12,000.00');
   //Verify options
   //Get options
-
   await page.goto("https://16-clothing.onshopbase.com/products/iphone-14-pro-max-128gb-nga-4")
   // const optionCount = await page.locator('//button[contains(@class, "product__option")]').count(); // trả về 4 phần tử
 
@@ -54,9 +62,7 @@ test('addProduct', async ({ page }) => {
     expect(optionText).toEqual(createdOptions[i]);
     console.log(optionText);
   }
-  //expects 
-  expect(product).toEqual('iPhone 14 Pro Max 128GB - Nga')
+  // await page.pause();
 });
-
 
 
