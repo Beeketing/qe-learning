@@ -10,3 +10,15 @@ Learning progress for talent class
 - [lesson 2: Class, Interface, Module, Optional/Non-null](typescript-co-ban-2.md)
 - [lesson 3: Thực hành Class, Interface & Module](typescript-co-ban-3.md)
 - lesson 4:
+
+# Nộp bài tập
+- [06 - Automation testing e.g](06-playwright-eg.spec.ts)
+- 06 - Automation testing homework
+    - [06.ex1 Tạo product](06-ex2.spec.ts)
+    - [06.ex2 Tạo manual collection Mobile phone](06-ex2.spec.ts)
+    - [06.ex3 ]()
+-
+
+# Bài kiểm tra
+- [Bài kiểm tra 01](js-test.js)
+
