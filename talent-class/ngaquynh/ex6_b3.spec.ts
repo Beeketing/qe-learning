@@ -32,20 +32,26 @@ test('addDiscount', async ({ page }) => {
   await page.click("//div[@class='select-product-component s-mt16']//span[@class='s-flex s-flex--align-center'][normalize-space()='Browse']")
   await page.waitForTimeout(1 * 1000);
 
-  await page.click("//html[1]/body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[3]/div[1]/form[1]/div[3]/div[2]/div[2]/div[3]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/label[1]/span[1]");
+  await page.locator("//input[@placeholder='Search for product']").type('iPhone 14 Pro Max 128GB - Nga',{
+    delay: 50,
+  });
+
+  await page.click("//body/div[@id='app']/div[@class='unite-ui-frame vertical-screen']/main[@class='s-mb96 unite-ui-dashboard__main menu-expand']/div[@class='m-t-ex container padding-for-select-plan-bar']/div/div[@class='discount-detail-page']/div[@class='row']/div[@class='col-xs-12 col-sm-8']/form[@class='s-form']/div[@class='section s-mt24']/div[@class='section-body s-flex s-flex--vertical s-mt4']/div[@class='select-product-component s-mt16']/div[@class='s-modal is-active modal-select-product modal-select-item']/div[@class='s-modal-wrapper']/div[@class='s-animation-content s-modal-content']/div[@class='s-modal-body']/div[@class='item-list']/div[2]/div[1]/label[1]/span[1]");
   await page.waitForTimeout(1 * 1000);
 
   await page.click("//div[@class='s-modal-footer']//span[@class='s-flex s-flex--align-center'][normalize-space()='Save']");
-  await page.waitForTimeout(1 * 1000);
+  await page.waitForTimeout(5 * 1000);
 
   await page.click("//span[normalize-space()='Save changes']")
-  await page.waitForTimeout(2 * 1000);
-  await page.goto('https://16-clothing.onshopbase.com/products/iphone-14-pro-max-128gb-nga-4');
+  await page.waitForTimeout(3 * 1000);
+
+
+  await page.goto('https://16-clothing.onshopbase.com/collections/mobile-phone/products/iphone-14-pro-max-128gb-nga-4');
   await page.waitForTimeout(5 * 1000);
   await page.click("//span[normalize-space()='Buy Now']");
   await page.waitForTimeout(5 * 1000);
 
-  await page.locator("//input[@id='checkout_shipping_address_email']").fill('ngaquynh141001@gmail.com');
+  await page.locator("//input[@id='checkout_shipping_address_email']").fill('ngaquynh141001@gmail.com'); 
   await page.click("//label[@id='accept-marketing']//span[@class='s-check']");
   await page.locator("//input[@id='checkout_shipping_address_first_name']").fill('ABC');
   await page.locator("//input[@id='checkout_shipping_address_last_name']").fill('EFG');
@@ -70,6 +76,7 @@ test('addDiscount', async ({ page }) => {
 
   await page.locator("//input[@placeholder='Cardholder name']").fill('Nga Quynh');
 
+  //thêm frameLocator để thêm html đẻ lấy locator 
   await page.locator('//div[@class="fieldset stripe-form test-gateway"]').frameLocator("//div[@id='stripe-card-expiry']//iframe").locator('[placeholder="MM/YY"]').fill('0326');
 
   // await page.locator("//div[@class='fieldset stripe-form test-gateway']").frameLocator("//div[@id='stripe-card-cvc']//iframe").locator('[placeholder="CVV"]').fill("424");
@@ -89,6 +96,7 @@ test('addDiscount', async ({ page }) => {
   await page.goto('https://16-clothing.onshopbase.com/admin/discounts');
 
   const statusDiscount = await page.locator("//p[contains(@class,'text-capitialize')][normalize-space()='Scheduled']").textContent()
+  await page.waitForTimeout(2 * 1000);
   //expects 
 
   expect(statusDiscount).toEqual('Scheduled');
