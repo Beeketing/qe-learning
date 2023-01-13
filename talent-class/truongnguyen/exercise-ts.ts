@@ -182,13 +182,10 @@ test("add discount code", async ({ page }) => {
   await page
     .locator("//input[@placeholder='e.g. SUMMERSALE']")
     .fill("OCG_2023_TALENT");
-  /* not work
-  // await page.click("//div[@class='s-select full-width']//select");
-  // await page.waitForTimeout(1 *1000);
-  // await page.click("//option[@value='percentage']");
-  // await page.waitForTimeout(1 *1000);
-
-  */
+  await page
+    .locator("//div[@class='s-select full-width']//select")
+    .selectOption("Percentage");
+  await page.waitForTimeout(3 * 1000);
   await page.locator("//input[@placeholder='0']").fill("10");
   await page.click(
     "//body[1]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[3]/div[1]/form[1]/div[3]/div[2]/label[3]/span[1]"
