@@ -16,7 +16,7 @@ Learning progress for talent class
 - 06 - Automation testing homework
     - [06.ex1 Tạo product](06-ex2.spec.ts)
     - [06.ex2 Tạo manual collection Mobile phone](06-ex2.spec.ts)
-    - [06.ex3 ]()
+    - [06.ex3 Tạo discount code, check out](06-ex3.spec.ts)
 -
 
 # Bài kiểm tra
