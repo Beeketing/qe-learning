@@ -20,6 +20,10 @@ Tracking Learning Progress
 - [Learning JavaScript Lesson 18](learning-javascript-basic-lesson-18.md)
 - [Learning JavaScript Lesson 19](learning-javascript-basic-lesson-19.md)
 - [Learning JavaScript Lesson 20](learning-javascript-basic-lesson-20.md)
+- [Learning JavaScript Lesson 21](learning-javascript-basic-lesson-21.md)
+- [Learning JavaScript Lesson 22](learning-javascript-basic-lesson-22.md)
+- [Learning JavaScript Lesson 23](learning-javascript-basic-lesson-23.md)
+- [Learning JavaScript Lesson 24](learning-javascript-basic-lesson-24.md)
 - [Exercise Slide 03](exercise-in-slide-3.js)
 
 
