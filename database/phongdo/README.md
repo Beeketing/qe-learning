@@ -44,3 +44,4 @@ Choose any three.
 - [35% faster than the filesystem](0008-35-percent-faster-than-the-filesystem.md)
 - [8+3 Filenames](0009-8-3-file-name.md)
 - [About SQLite](0010-about-sqlite.md)
+- [Alter table](0011-alter-table.md)
