@@ -56,6 +56,13 @@
   - Để tạo và chạy image, dùng câu lệnh\
   `docker run [các tham số] [TÊN IMAGE] hoặc [ID IMAGE]`
 
+  - Ta có thể sử dụng câu lệnh `ctrl + p` `ctrl + q` để trở về máy host
+
+  - Để quay trở lại terminal của container bằng câu lệnh\
+  `docker attach [TÊN IMAGE] hoặc [ID IMAGE]`
+
+    ![docker attach](images\docker_attach.png)
+
   - Jenkin là một phần mềm run trên webserver, để thực thi chạy cần truyền vào tham số là **port** để có thể giả lập chạy trên local. Truy cập [docker hub jenkins](https://hub.docker.com/_/jenkins) để kiểm tra port trỏ vào jenkins
 
     ![docker run jenkins command](images\docker_run_jenkins_command.png)
