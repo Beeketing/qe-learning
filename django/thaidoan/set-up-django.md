@@ -1,29 +1,32 @@
 # Django-self-learning
+
 Học này học kia
 
 ## 1 Install and set up
+
 - Dpwnload và Cài đặt Pycharm
-- Download python jdk 3.9.x 
+- Download python jdk 3.9.x
 - Install python jdk (Lúc install nhớ tick chọn add variable to PATH) > Nếu quên vào PATH để thêm lại
 - Kiểm tra xem đã install được chưa bằng `python -V`, `pip -V`
 
-
 - Cài đặt pipenv
- `pip install pipenv`
-- Tiếp tục vào PATH thêm 2 đườnng dẫn sau vào PATH 
- ```
- C:\Users\ocg\AppData\Roaming\Python\Python39\Scripts
- C:\Users\ocg\AppData\Roaming\Python\Python39\Site-Packages
- ```
-- Kiểm tra xem đã setup được pipenv được hay chưa : `pipenv -h`
-- Run lệnh `pipenv shell` + `pipenv install django` để install các package của django vào 
+  `pip install pipenv`
+- Tiếp tục vào PATH thêm 2 đườnng dẫn sau vào PATH
 
+```
+C:\Users\ocg\AppData\Roaming\Python\Python39\Scripts
+C:\Users\ocg\AppData\Roaming\Python\Python39\Site-Packages
+```
+
+- Kiểm tra xem đã setup được pipenv được hay chưa : `pipenv -h`
+- Run lệnh `pipenv shell` + `pipenv install django` để install các package của django vào
 
 - Download và install Doker
 - Tạo 1 thư mục mới trong ổ D: hoặc j đó
 - Tạo mới 1 Database và connect vào DB
   VD: test-huh blablabla
   - Tại DB run các cmd sau:
+
 ```
 INSERT INTO bgroup_docs.auth_group (id, name) VALUES (1, 'Tester');
 INSERT INTO bgroup_docs.auth_group_permissions (id, group_id, permission_id) VALUES (1, 1, 1);
@@ -86,15 +89,13 @@ INSERT INTO bgroup_docs.auth_group_permissions (id, group_id, permission_id) VAL
 INSERT INTO bgroup_docs.auth_group_permissions (id, group_id, permission_id) VALUES (58, 1, 119);
 INSERT INTO bgroup_docs.auth_group_permissions (id, group_id, permission_id) VALUES (59, 1, 120);
 ```
+
 - Mở terminal: run cmd
-  ```docker run -v "${Thư mục đã tạo}/data":/var/lib/mysql --name mysql8 -e MYSQL_ROOT_PASSWORD=root -p {port muốn chạy} -d mysql:latest```
-  
-  
+  `docker run -v "${Thư mục đã tạo}/data":/var/lib/mysql --name mysql8 -e MYSQL_ROOT_PASSWORD=root -p {port muốn chạy} -d mysql:latest`
 - Tại project đã tạo > Terminal: run
   ```
   python manage.py migrate
   python manage.py runserver
   ```
 - Có thể thay port bằng cách thêm tham số phía sau:
- ```python manage.py runserver http://127.0.0.1:8080```
- 
+  `python manage.py runserver http://127.0.0.1:8080`

@@ -5,8 +5,6 @@
 
 </p>
 
-![img](assets/readme_resource/logo.png)
-
 ## 🧐 About <a name = "about"></a>
 This project for QE team at OCG practice, learning, sharing.
 This include knowledge about: testing, coding.
