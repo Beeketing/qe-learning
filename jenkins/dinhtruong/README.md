@@ -4,3 +4,4 @@
 - [Part 2: Cài đặt & update Jenkins trên Docker](Part-2.md)
 - [Part 3: Jenkins Pipeline](Part-3.md)
 - [Part 4: Sử dụng Jenkinsfile](Part-4.md)
+- [Part 5: Tạo job định kỳ trên Jenkins](Part-5.md)
