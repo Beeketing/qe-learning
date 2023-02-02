@@ -128,4 +128,62 @@ def vote(request, question_id):
 > Đoạn code trên bao gồm 1 số phần chưa được cover trước
 - `request.POST` là 1 đối tượng giúp bạn submit dữ liệu bằng keyname > Trong trường hợp này là `request.POST['choice']` > Sau đó trả về ID của choice được chọn là 1 chuỗi. Giá trị trả về của `request.POST` luôn là 1 chuỗi 
 - Nếu `choice` mà không được given > Raise `KeyError`
-- 
+- Sau mỗi lần đến số choice tăng lên: code sẽ trả về 1 HttpResponseRedirect sau khi dùng phương thức POST > Nên trả về HttpResponseRedirect thay vì HttpResponse
+- Sử dụng phương thức `reverse()` Chức năng này giúp tránh phải mã hóa cứng một URL trong chức năng xem. Đại để là gọi đến file view đã được đặt tên `app name` trước đó , file view đó đã được conf `Url` tương ứng . Trong trường hợp này, sử dụng URLconf mà chúng ta đã thiết lập trong  3, lệnh gọi reverse() này sẽ trả về một chuỗi như sau: 
+```python
+/polls/3/results/ (Trong đó 3 là question.id)
+```
+- Sau khi vote cho một câu hỏi, vote() function sẽ chuyển hướng đến trang kết quả cho câu hỏi.
+```python
+def results(request, question_id):
+    question = get_object_or_404(Question, pk=question_id)
+    return render(request, 'polls/results.html', {'question': question})
+```
+=> func results trên giống với detail() func đã khởi tạo tuy nhiên điểm khác biệt là template name: result.html
+
+- Tiếp tục tạo file result.html
+```html
+<h1>{{ question.question_text }}</h1>
+
+<ul>
+{% for choice in question.choice_set.all %}
+    <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
+{% endfor %}
+</ul>
+
+<a href="{% url 'polls:detail' question.id %}">Vote again?</a>
+```
+==> Tuy nhiên đoạn code trên có 1 vấn đề. nếu 2 user cùng thực hiện vote tại 1 thời điểm: hệ thống sẽ chỉ ghi nhận 1 > Điều này là bởi `race condition` > THAM KHẢO SAU
+
+## Tối ưu lại file view
+- Tại file view.py để ý các func: detail, result => Các chế độ xem này đại diện cho một trường hợp phổ biến của phát triển web cơ bản: lấy dữ liệu từ cơ sở dữ liệu theo tham số được truyền trong URL, tải mẫu và trả về mẫu được kết xuất. Bởi vì điều này quá phổ biến, Django cung cấp một lối tắt, được gọi là hệ thống "chế độ xem chung".
+
+- Amend URLconf > Thay đổi file url
+```python
+urlpatterns = [
+    path('', views.IndexView.as_view(), name='index'),
+    path('<int:pk>/', views.DetailView.as_view(), name='detail'),
+    path('<int:pk>/results/', views.ResultsView.as_view(), name='results'),
+    path('<int:question_id>/vote/', views.vote, name='vote'),
+]
+```
+- Amend viewconf > Thay đổi các func detail(), results(), index() tại file view.py như sau
+```python
+class IndexView(generic.ListView):
+    template_name = 'polls/index.html'
+    context_object_name = 'latest_question_list'
+
+    def get_queryset(self):
+        """Return the last five published questions."""
+        return Question.objects.order_by('-pub_date')[:5]
+
+
+class DetailView(generic.DetailView):
+    model = Question
+    template_name = 'polls/detail.html'
+
+
+class ResultsView(generic.DetailView):
+    model = Question
+    template_name = 'polls/results.html'
+```
