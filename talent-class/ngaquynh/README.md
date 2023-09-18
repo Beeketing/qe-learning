@@ -17,3 +17,6 @@
 - [Lesson 14: Toán tử Boolean]
 - [Lesson 15: Câu điều kiện If-Else]
 - [Lesson 16: Toán tử Logical](javascript-co-ban-lesson16.md)
+# TypeScript 
+- [Lesson 1: Type, Function, Alias, Array, Object](Typescript-lesson1.md)
+- [Lesson 2: Class, Interface, Module, Optional/Non-null](Typescript-lesson2.md)
